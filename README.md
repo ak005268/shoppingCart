@@ -11,8 +11,9 @@ A simple React-based shopping website where users can add products, manage price
 1. Clone the repository:
    ```bash
   [ git clone https://github.com/your-username/your-repo-name.git](https://github.com/ak005268/shoppingCart.git)
+  
   npm install
-npm start
+  npm start
 
 ## Usage
 - Browse products and add them to your cart.
