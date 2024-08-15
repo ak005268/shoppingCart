@@ -1,18 +1,19 @@
-import React from 'react'
 import cartIcon from '../assets/icons/cartImg.png'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/slice/cartSlice';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
+import iconGif from '../assets/icons/added.gif'
 
 const ProductCart = (props: any) => {
 
     const { title, category, description, rating, price, image, id } = props?.item;
-    const { count, rate } = rating;
+
 
     const dispatch = useDispatch();
 
     const addProduct = (e: any) => {
-
+        toast(<div className='flex gap-3 font-bold justify-center items-center'><img src={iconGif} alt='success' /> Successfully added to cart</div>)
         dispatch(addCart(e))
     }
 

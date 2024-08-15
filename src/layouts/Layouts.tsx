@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../pages/Header'
 import { Outlet } from 'react-router-dom'
 import CartTab from '../pages/CartTab'
+import { Toaster } from 'sonner'
 
 const Layouts = () => {
     return (
@@ -10,6 +11,7 @@ const Layouts = () => {
                 <Header />
                 <Outlet />
             </main>
+            <Toaster position='top-center'/>
             <CartTab />
         </div>
     )
