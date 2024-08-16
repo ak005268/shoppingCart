@@ -15,7 +15,8 @@ const Login = () => {
         }))
     };
 
-    const authentication = JSON.parse(localStorage.getItem('authentication') || '');
+    const authItem = localStorage.getItem('authentication');
+    const authentication = authItem ? JSON.parse(authItem) : false;
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
