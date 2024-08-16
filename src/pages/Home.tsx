@@ -38,7 +38,7 @@ const Home = () => {
         Product List
       </h1>
 
-      <div className='grid md:grid-cols-3 grid-cols-2 gap-5 rounded-3xl lg:grid-cols-4 '>
+      <div className='grid md:grid-cols-3 grid-cols-1 gap-5 rounded-3xl lg:grid-cols-4 '>
         {data?.map((item: any) => (
           <ProductCart key={item?.id} item={item} />
         ))}

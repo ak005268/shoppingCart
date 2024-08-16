@@ -9,6 +9,7 @@ const ProductDescription = () => {
     const param = useParams();
     const data: any = JSON.parse(localStorage?.getItem('products') || '[]');
     const matchProduct = data?.find((i: any) => i?.id === + (param?.id || 0));
+    console.log('matchProduct=>', matchProduct)
 
     useEffect(() => {
         const a = selectedItems.find((i: any) => i.id === +(param?.id || 0))
@@ -30,15 +31,19 @@ const ProductDescription = () => {
 
     return (
         <div>
-            <h2 className='text-3xl text-center'>Product Details</h2>
-            <div className='grid grid-cols-2 gap-5 mt-5'>
-                <div>
+            <h2 className= 'text-xl mt-3 lg:text-3xl text-center '>Product Details</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5'>
+                <div className='w-full justify-center items-center'>
                     <img src={matchProduct.image} alt="test" className='w-[300px] ' />
                 </div>
 
                 <div className='flex flex-col gap-5'>
                     <h1 className='text-3xl font-semibold'>{matchProduct.title} </h1>
                     <p className='text-base font-extrabold'>$ {matchProduct.price}</p>
+                  <div className='flex gap-5 items-center'>
+                  <div className='text-sm font-bold rounded-md px-2 bg-[#388e3c] text-white w-fit py-1'> {matchProduct.rating.rate} ☆</div>
+                  <p className='text-base font-medium text-[#878787]'> {matchProduct.rating.count} Ratings </p>
+                  </div>
 
                     <div className='flex gap-5'>
                         <div className='flex gap-2 justify-center items-center'>
