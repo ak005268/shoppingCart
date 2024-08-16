@@ -3,17 +3,21 @@ import Header from '../pages/Header'
 import { Outlet } from 'react-router-dom'
 import CartTab from '../pages/CartTab'
 import { Toaster } from 'sonner'
+import PrivateRouter from '../helper/PrivateRouter'
 
 const Layouts = () => {
     return (
-        <div className='bg-zinc-200'>
-            <main className='w-[1200px] max-w-full m-auto p-5'>
-                <Header />
-                <Outlet />
-            </main>
-            <Toaster position='top-center'/>
-            <CartTab />
-        </div>
+        <PrivateRouter >
+
+            <div className='bg-zinc-200'>
+                <main className='w-[1200px] max-w-full m-auto p-5'>
+                    <Header />
+                    <Outlet />
+                </main>
+                <Toaster position='top-center' />
+                <CartTab />
+            </div>
+        </PrivateRouter>
     )
 }
 

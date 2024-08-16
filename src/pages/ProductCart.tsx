@@ -19,7 +19,7 @@ const ProductCart = (props: any) => {
 
     return (
         <div className='bg-white p-5 shadow-lg rounded-xl'>
-            <Link to={`product/${id}`}>
+            <Link to={`/product/${id}`}>
                 <img src={image} alt='' className='w-full h-80 object-fill object-top drop-shadow-lg' />
             </Link>
 

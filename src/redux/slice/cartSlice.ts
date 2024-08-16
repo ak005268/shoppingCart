@@ -5,7 +5,6 @@ const initialState = {
     tabStatus: true
 }
 
-
 const cartSlice = createSlice({
     name: "cart",
     initialState,
