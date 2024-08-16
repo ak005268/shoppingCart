@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { addCart, changeQuantity } from '../redux/slice/cartSlice';
+import { toast } from 'sonner';
+import iconGif from '../assets/icons/added.gif'
+
 
 const ProductDescription = () => {
 
@@ -22,23 +25,27 @@ const ProductDescription = () => {
     const dispatch = useDispatch();
 
     const incrementProduct = () => {
+        
+        toast(<div className='flex gap-3 font-bold justify-center items-center'><img src={iconGif} alt='success' /> Successfully added to cart</div>)
         dispatch(addCart(matchProduct));
     }
-
+    
     const decrementProduct = () => {
+        toast(<div className='flex gap-3 font-bold justify-center items-center'><img src={iconGif} alt='success' /> Successfully removed to cart</div>)
+
         dispatch(changeQuantity(matchProduct));
     }
 
     return (
         <div>
-            <h2 className= 'text-xl mt-3 lg:text-3xl text-center '>Product Details</h2>
+            <h2 className= 'text-xl my-3 lg:mt-4 lg:mb-20 lg:text-3xl text-center font-bold '>Product Details</h2>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5'>
                 <div className='w-full justify-center items-center'>
                     <img src={matchProduct.image} alt="test" className='w-[300px] ' />
                 </div>
 
                 <div className='flex flex-col gap-5'>
-                    <h1 className='text-3xl font-semibold'>{matchProduct.title} </h1>
+                    <h1 className='text-3xl font-semibold'>{matchProduct.title} <span className='text-xs font-bold text-green-950'>({matchProduct?.category})</span> </h1>
                     <p className='text-base font-extrabold'>$ {matchProduct.price}</p>
                   <div className='flex gap-5 items-center'>
                   <div className='text-sm font-bold rounded-md px-2 bg-[#388e3c] text-white w-fit py-1'> {matchProduct.rating.rate} ☆</div>

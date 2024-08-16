@@ -1,5 +1,8 @@
 import { useDispatch, } from 'react-redux';
 import { addCart, changeQuantity } from '../redux/slice/cartSlice';
+import { toast } from 'sonner';
+import iconGif from '../assets/icons/added.gif'
+
 
 const CartItem = (props: any) => {
 
@@ -9,10 +12,14 @@ const CartItem = (props: any) => {
 
     const incrementProduct = (id: any,) => {
         const da: any = { id: id }
+        toast(<div className='flex gap-3 font-bold justify-center items-center'><img src={iconGif} alt='success' /> Successfully added to cart</div>)
+
         dispatch(addCart(da));
     }
 
     const decrementProduct = (id: any, quantity: any) => {
+        toast(<div className='flex gap-3 font-bold justify-center items-center'><img src={iconGif} alt='success' /> Successfully removed to cart</div>)
+
         const da: any = { id: id, quantity: quantity }
         dispatch(changeQuantity(da));
     }

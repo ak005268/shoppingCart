@@ -35,7 +35,7 @@ const Home = () => {
       {loading && <div>Loading...</div>}
       {isError && <div>{isError}</div>}
       <h1 className='text-3xl my-5'>
-        Product List
+        Product List's
       </h1>
 
       <div className='grid md:grid-cols-3 grid-cols-1 gap-5 rounded-3xl lg:grid-cols-4 '>
