@@ -18,6 +18,7 @@ const Login = () => {
     const authentication = JSON.parse(localStorage.getItem('authentication') || '');
 
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => { if (authentication) navigate('/home') }, [authentication])
 
     const submit = (e: any) => {
