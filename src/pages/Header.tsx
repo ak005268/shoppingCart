@@ -1,21 +1,24 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 import cartImg from '../assets/icons/cartImg.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTab } from '../redux/slice/cartSlice';
+import { useCallback } from 'react';
 
 const Header = () => {
     const cart = useSelector((state: any) => state.cart);
     const dispatch = useDispatch()
     const handel = () => {
-        dispatch(changeTab(''))
+        dispatch(changeTab('http://localhost:3000/home'))
     };
     const navigate = useNavigate()
 
-    const LogoutHandler = () => {
-        localStorage.setItem('authentication', JSON.stringify(false))
+    const match = useMatch('');
+    console.log('match=>', match)
 
+    const LogoutHandler = useCallback(() => {
+        localStorage.setItem('authentication', JSON.stringify(false));
         navigate('/')
-    }
+    }, []);
 
     return (
         <header className=' flex justify-between'>

@@ -8,7 +8,6 @@ import PrivateRouter from '../helper/PrivateRouter'
 const Layouts = () => {
     return (
         <PrivateRouter >
-
             <div className='bg-zinc-200'>
                 <main className='w-[1200px] max-w-full h-screen m-auto p-5'>
                     <Header />
